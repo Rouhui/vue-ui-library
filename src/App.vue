@@ -2,7 +2,7 @@
  * @Author: jiangruohui
  * @Date: 2021-10-08 14:34:13
  * @LastEditors: jiangruohui
- * @LastEditTime: 2021-10-08 15:50:48
+ * @LastEditTime: 2021-10-09 14:33:15
  * @Description:
 -->
 <template>
@@ -10,6 +10,7 @@
     <div id="nav">
       <router-link to="/">Home</router-link>
       <router-link to="/form">Form</router-link>
+      <router-link to="/checkbox">Checkbox</router-link>
     </div>
     <div id="container">
       <router-view/>
@@ -43,6 +44,8 @@
 }
 
 #container {
+  padding: 30px;
   width: 80vw;
+  text-align: left;
 }
 </style>
