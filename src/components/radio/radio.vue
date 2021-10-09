@@ -1,30 +1,20 @@
 <!--
  * @Author: jiangruohui
- * @Date: 2021-10-09 11:15:27
+ * @Date: 2021-10-09 14:57:28
  * @LastEditors: jiangruohui
- * @LastEditTime: 2021-10-09 15:24:55
- * @Description:
+ * @LastEditTime: 2021-10-09 16:18:29
  * @Description:
 -->
 <template>
   <label>
     <span>
        <input
-          v-if="group"
-          v-model="model"
-          type="checkbox"
+          type="radio"
           :disabled="disabled"
-          :value="label"
+          :checked="currentValue"
           @change="change">
-      <input
-        v-else
-        type="checkbox"
-        :disabled="disabled"
-        :checked="currentValue"
-        @change="change"
-       />
     </span>
-    <slot></slot>
+    <slot>{{ label }}</slot>
   </label>
 </template>
 
@@ -33,7 +23,7 @@ import Emitter from '@/mixins/emitter.js'
 import { findComponentUpward } from '@/utils/assist.js'
 
 export default {
-  name: 'iCheckbox',
+  name: 'iRadio',
   mixins: [Emitter],
   props: {
     label: {
@@ -59,7 +49,6 @@ export default {
   data () {
     return {
       currentValue: this.value,
-      model: [],
       group: false,
       parent: null
     }
@@ -67,36 +56,33 @@ export default {
   watch: {
     value (val) {
       if (val === this.trueValue || val === this.falseValue) {
-        this.updateModel()
+        this.updateValue()
       } else {
         throw Error('Value should be trueValue or falseValue.')
       }
     }
   },
   mounted () {
-    this.parent = findComponentUpward(this, 'iCheckboxGroup')
+    this.parent = findComponentUpward(this, 'iRadioGroup')
 
     if (this.parent) {
       this.group = true
     }
 
     if (this.group) {
-      // 父组件mounted也调用了updateModel，为什么重复调用
-      // 为了实现动态组件，当有新的checkbox组件加入进来时，可以正确更新
-      this.parent.updateModel(true)
+      this.parent.updateValue(true)
     } else {
-      this.updateModel()
+      this.updateValue()
     }
   },
   methods: {
-    updateModel () {
+    updateValue () {
       this.currentValue = this.value === this.trueValue
     },
     change (event) {
       if (this.disabled) {
         return false
       }
-
       const checked = event.target.checked
       this.currentValue = checked
 
@@ -104,18 +90,20 @@ export default {
       this.$emit('input', value)
 
       if (this.group) {
-        this.parent.change(this.model)
+        if (this.label !== undefined) {
+          this.parent.change({
+            value: this.label,
+            checked: this.value
+          })
+        }
       } else {
-        // 提供 on-change event
         this.$emit('on-change', value)
-        // 用于外部表单校验
         this.dispatch('iFormItem', 'on-form-change', value)
       }
     }
   }
 }
+
 </script>
-
 <style lang='scss' scoped>
-
 </style>

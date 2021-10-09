@@ -2,7 +2,7 @@
  * @Author: jiangruohui
  * @Date: 2021-10-09 11:15:27
  * @LastEditors: jiangruohui
- * @LastEditTime: 2021-10-09 14:09:54
+ * @LastEditTime: 2021-10-09 15:33:27
  * @Description:
 -->
 <template>
@@ -29,7 +29,7 @@ export default {
   data () {
     return {
       currentValue: this.value,
-      childrens: []
+      children: []
     }
   },
   watch: {
@@ -42,10 +42,10 @@ export default {
   },
   methods: {
     updateModel (update) {
-      this.childrens = findComponentsDownward(this, 'iCheckbox')
-      if (this.childrens) {
+      this.children = findComponentsDownward(this, 'iCheckbox')
+      if (this.children) {
         const { value } = this
-        this.childrens.forEach(child => {
+        this.children.forEach(child => {
           child.model = value
 
           if (update) {

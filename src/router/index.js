@@ -2,7 +2,7 @@
  * @Author: jiangruohui
  * @Date: 2021-10-08 14:34:13
  * @LastEditors: jiangruohui
- * @LastEditTime: 2021-10-09 14:31:11
+ * @LastEditTime: 2021-10-09 14:58:32
  * @Description:
  */
 import Vue from 'vue'
@@ -29,6 +29,11 @@ const routes = [
     path: '/checkbox',
     name: 'CheckboxDemo',
     component: () => import('../views/Checkbox.vue')
+  },
+  {
+    path: '/radio',
+    name: 'RadioDemo',
+    component: () => import('../views/Radio.vue')
   }
 ]
 

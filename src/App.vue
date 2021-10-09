@@ -2,7 +2,7 @@
  * @Author: jiangruohui
  * @Date: 2021-10-08 14:34:13
  * @LastEditors: jiangruohui
- * @LastEditTime: 2021-10-09 14:33:15
+ * @LastEditTime: 2021-10-09 14:58:16
  * @Description:
 -->
 <template>
@@ -11,6 +11,7 @@
       <router-link to="/">Home</router-link>
       <router-link to="/form">Form</router-link>
       <router-link to="/checkbox">Checkbox</router-link>
+      <router-link to="/radio">Radio</router-link>
     </div>
     <div id="container">
       <router-view/>
