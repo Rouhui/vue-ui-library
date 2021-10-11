@@ -2,7 +2,7 @@
  * @Author: jiangruohui
  * @Date: 2021-10-08 14:34:13
  * @LastEditors: jiangruohui
- * @LastEditTime: 2021-10-09 14:58:32
+ * @LastEditTime: 2021-10-11 11:47:56
  * @Description:
  */
 import Vue from 'vue'
@@ -34,6 +34,11 @@ const routes = [
     path: '/radio',
     name: 'RadioDemo',
     component: () => import('../views/Radio.vue')
+  },
+  {
+    path: '/display',
+    name: 'DisplayDemo',
+    component: () => import('../views/Display.vue')
   }
 ]
 
