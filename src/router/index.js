@@ -2,7 +2,7 @@
  * @Author: jiangruohui
  * @Date: 2021-10-08 14:34:13
  * @LastEditors: jiangruohui
- * @LastEditTime: 2021-10-11 11:47:56
+ * @LastEditTime: 2021-10-11 14:33:02
  * @Description:
  */
 import Vue from 'vue'
@@ -39,6 +39,11 @@ const routes = [
     path: '/display',
     name: 'DisplayDemo',
     component: () => import('../views/Display.vue')
+  },
+  {
+    path: '/alert',
+    name: 'AlertDemo',
+    component: () => import('../views/Alert.vue')
   }
 ]
 
