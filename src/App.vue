@@ -2,7 +2,7 @@
  * @Author: jiangruohui
  * @Date: 2021-10-08 14:34:13
  * @LastEditors: jiangruohui
- * @LastEditTime: 2021-10-11 14:33:12
+ * @LastEditTime: 2021-10-12 17:14:46
  * @Description:
 -->
 <template>
@@ -14,6 +14,7 @@
       <router-link to="/radio">Radio</router-link>
       <router-link to="/display">Display</router-link>
       <router-link to="/alert">Alert</router-link>
+      <router-link to="/table">Table</router-link>
     </div>
     <div id="container">
       <router-view/>

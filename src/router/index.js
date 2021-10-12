@@ -2,7 +2,7 @@
  * @Author: jiangruohui
  * @Date: 2021-10-08 14:34:13
  * @LastEditors: jiangruohui
- * @LastEditTime: 2021-10-11 14:33:02
+ * @LastEditTime: 2021-10-12 17:14:58
  * @Description:
  */
 import Vue from 'vue'
@@ -44,6 +44,11 @@ const routes = [
     path: '/alert',
     name: 'AlertDemo',
     component: () => import('../views/Alert.vue')
+  },
+  {
+    path: '/table',
+    name: 'TableDemo',
+    component: () => import('../views/Table.vue')
   }
 ]
 
