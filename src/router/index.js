@@ -2,7 +2,7 @@
  * @Author: jiangruohui
  * @Date: 2021-10-08 14:34:13
  * @LastEditors: jiangruohui
- * @LastEditTime: 2021-10-12 17:14:58
+ * @LastEditTime: 2021-10-14 14:54:33
  * @Description:
  */
 import Vue from 'vue'
@@ -46,9 +46,14 @@ const routes = [
     component: () => import('../views/Alert.vue')
   },
   {
-    path: '/table',
-    name: 'TableDemo',
-    component: () => import('../views/Table.vue')
+    path: '/table-render',
+    name: 'TableRenderDemo',
+    component: () => import('../views/TableRender.vue')
+  },
+  {
+    path: '/table-slot',
+    name: 'TableSlotDemo',
+    component: () => import('../views/TableSlot.vue')
   }
 ]
 
