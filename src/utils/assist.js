@@ -2,7 +2,7 @@
  * @Author: jiangruohui
  * @Date: 2021-10-09 09:31:56
  * @LastEditors: jiangruohui
- * @LastEditTime: 2021-10-09 10:23:12
+ * @LastEditTime: 2021-10-14 16:37:19
  * @Description:
  */
 
@@ -100,4 +100,45 @@ export const findBrothersComponents = (context, componentName, exceptMe = true) 
   const index = res.findIndex(item => item._uid === context._uid)
   if (exceptMe) res.splice(index, 1)
   return res
+}
+
+function typeOf (obj) {
+  const toString = Object.prototype.toString
+  const map = {
+    '[object Boolean]': 'boolean',
+    '[object Number]': 'number',
+    '[object String]': 'string',
+    '[object Function]': 'function',
+    '[object Array]': 'array',
+    '[object Date]': 'date',
+    '[object RegExp]': 'regExp',
+    '[object Undefined]': 'undefined',
+    '[object Null]': 'null',
+    '[object Object]': 'object'
+  }
+  return map[toString.call(obj)]
+}
+
+export const deepCopy = (data) => {
+  const t = typeOf(data)
+  let o
+
+  if (t === 'array') {
+    o = []
+  } else if (t === 'object') {
+    o = {}
+  } else {
+    return data
+  }
+
+  if (t === 'array') {
+    for (let i = 0; i < data.length; i++) {
+      o.push(deepCopy(data[i]))
+    }
+  } else if (t === 'object') {
+    for (const i in data) {
+      o[i] = deepCopy(data[i])
+    }
+  }
+  return o
 }

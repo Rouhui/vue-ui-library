@@ -2,7 +2,7 @@
  * @Author: jiangruohui
  * @Date: 2021-10-08 14:34:13
  * @LastEditors: jiangruohui
- * @LastEditTime: 2021-10-14 14:54:33
+ * @LastEditTime: 2021-10-14 16:31:56
  * @Description:
  */
 import Vue from 'vue'
@@ -54,6 +54,11 @@ const routes = [
     path: '/table-slot',
     name: 'TableSlotDemo',
     component: () => import('../views/TableSlot.vue')
+  },
+  {
+    path: '/tree',
+    name: 'TreeDemo',
+    component: () => import('../views/Tree.vue')
   }
 ]
 

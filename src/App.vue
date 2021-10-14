@@ -2,7 +2,7 @@
  * @Author: jiangruohui
  * @Date: 2021-10-08 14:34:13
  * @LastEditors: jiangruohui
- * @LastEditTime: 2021-10-14 14:55:38
+ * @LastEditTime: 2021-10-14 16:30:18
  * @Description:
 -->
 <template>
@@ -16,6 +16,7 @@
       <router-link to="/alert">Alert</router-link>
       <router-link to="/table-render">TableRender</router-link>
       <router-link to="/table-slot">TableSlot</router-link>
+      <router-link to="/tree">Tree</router-link>
     </div>
     <div id="container">
       <router-view/>
